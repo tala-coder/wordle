@@ -7,8 +7,10 @@ function App() {
   return (
     <div className="App">
       <Nav />
+      <div className='game'> 
       <Tabela />
-      <Keyboard />    
+      <Keyboard /> 
+      </div>   
     </div>
   );
 }
