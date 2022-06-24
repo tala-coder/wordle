@@ -1,60 +1,51 @@
-import React, {useState} from 'react'
+import React from 'react'
 import SlovoTabela from './SlovoTabela'
 
-const Tabela = () => {
-  const [tabela, setTabela] = useState([
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-  ]);
-    
+const Tabela = () => { 
   return (
     <div className="board">
       <br/>
       <div className="row"> 
-        <SlovoTabela tabela={tabela} red={0} pozicija={0} />
-        <SlovoTabela tabela={tabela} red={0} pozicija={1} />
-        <SlovoTabela tabela={tabela} red={0} pozicija={2} />
-        <SlovoTabela tabela={tabela} red={0} pozicija={3} />
-        <SlovoTabela tabela={tabela} red={0} pozicija={4} />
+        <SlovoTabela red={0} kolona={0} />
+        <SlovoTabela red={0} kolona={1} />
+        <SlovoTabela red={0} kolona={2} />
+        <SlovoTabela red={0} kolona={3} />
+        <SlovoTabela red={0} kolona={4} />
       </div>
       <div className="row">
-        <SlovoTabela tabela={tabela} red={1} pozicija={0} />
-        <SlovoTabela tabela={tabela} red={1} pozicija={1} />
-        <SlovoTabela tabela={tabela} red={1} pozicija={2} />
-        <SlovoTabela tabela={tabela} red={1} pozicija={3} />
-        <SlovoTabela tabela={tabela} red={1} pozicija={4} />
+        <SlovoTabela red={1} kolona={0} />
+        <SlovoTabela red={1} kolona={1} />
+        <SlovoTabela red={1} kolona={2} />
+        <SlovoTabela red={1} kolona={3} />
+        <SlovoTabela red={1} kolona={4} />
       </div>
       <div className="row">
-        <SlovoTabela tabela={tabela} red={2} pozicija={0} />
-        <SlovoTabela tabela={tabela} red={2} pozicija={1} />
-        <SlovoTabela tabela={tabela} red={2} pozicija={2} />
-        <SlovoTabela tabela={tabela} red={2} pozicija={3} />
-        <SlovoTabela tabela={tabela} red={2} pozicija={4} />
+        <SlovoTabela red={2} kolona={0} />
+        <SlovoTabela red={2} kolona={1} />
+        <SlovoTabela red={2} kolona={2} />
+        <SlovoTabela red={2} kolona={3} />
+        <SlovoTabela red={2} kolona={4} />
       </div>
       <div className="row">
-        <SlovoTabela tabela={tabela} red={3} pozicija={0} />
-        <SlovoTabela tabela={tabela} red={3} pozicija={1} />
-        <SlovoTabela tabela={tabela} red={3} pozicija={2} />
-        <SlovoTabela tabela={tabela} red={3} pozicija={3} />
-        <SlovoTabela tabela={tabela} red={3} pozicija={4} />
+        <SlovoTabela red={3} kolona={0} />
+        <SlovoTabela red={3} kolona={1} />
+        <SlovoTabela red={3} kolona={2} />
+        <SlovoTabela red={3} kolona={3} />
+        <SlovoTabela red={3} kolona={4} />
       </div>
       <div className="row">
-        <SlovoTabela tabela={tabela} red={4} pozicija={0} />
-        <SlovoTabela tabela={tabela} red={4} pozicija={1} />
-        <SlovoTabela tabela={tabela} red={4} pozicija={2} />
-        <SlovoTabela tabela={tabela} red={4} pozicija={3} />
-        <SlovoTabela tabela={tabela} red={4} pozicija={4} />
+        <SlovoTabela red={4} kolona={0} />
+        <SlovoTabela red={4} kolona={1} />
+        <SlovoTabela red={4} kolona={2} />
+        <SlovoTabela red={4} kolona={3} />
+        <SlovoTabela red={4} kolona={4} />
       </div>
       <div className="row">
-        <SlovoTabela tabela={tabela} red={5} pozicija={0} />
-        <SlovoTabela tabela={tabela} red={5} pozicija={1} />
-        <SlovoTabela tabela={tabela} red={5} pozicija={2} />
-        <SlovoTabela tabela={tabela} red={5} pozicija={3} />
-        <SlovoTabela tabela={tabela} red={5} pozicija={4} />
+        <SlovoTabela red={5} kolona={0} />
+        <SlovoTabela red={5} kolona={1} />
+        <SlovoTabela red={5} kolona={2} />
+        <SlovoTabela red={5} kolona={3} />
+        <SlovoTabela red={5} kolona={4} />
       </div>
     </div>
   )
