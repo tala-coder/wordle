@@ -7,7 +7,7 @@ const Keyboard = () => {
   const keys1 = ["Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P"];
   const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
   const keys3 = ["Y", "X", "C", "V", "B", "N", "M"];
-  let { tabela, pozicija, setTabela, setPozicija, jelPobjedio } = useContext(DataContext);
+  let { tabela, pozicija, setTabela, setPozicija, jelPobjedio, iskoristenaSlova } = useContext(DataContext);
 
   const onSelectLetter = (value) => {
     if (pozicija.kolona > 4) return;
@@ -18,12 +18,13 @@ const Keyboard = () => {
       red: pozicija.red, kolona: pozicija.kolona + 1,
     });
   }; 
-
+  
+  
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const odabranoSlovo = useCallback((event) => {
     if (event.key === "Enter") {
       if (pozicija.kolona !== 5) return;
-      // jelPobjedio();
+      jelPobjedio();
       setPozicija({ red: pozicija.red + 1, kolona: 0 });
     } else if (event.key === "Backspace") {
       if (pozicija.kolona === 0) return;
@@ -61,19 +62,19 @@ const Keyboard = () => {
   return (
     <div className="keyboard">
       <div className="line1">
-        {keys1.map((key) => {
-          return <SlovoKeyboard key={key} value={key}/*  disabled={disabledLetters.includes(key) }*/ />;
+        {keys1.map((slovo) => {
+          return <SlovoKeyboard key={slovo} value={slovo}  iskoristeno={iskoristenaSlova.includes(slovo) } />;
         })}
       </div>
       <div className="line2">
-        {keys2.map((key) => {
-          return <SlovoKeyboard key={key} value={key}/*  disabled={disabledLetters.includes(key) }*/ />;
+        {keys2.map((slovo) => {
+          return <SlovoKeyboard key={slovo} value={slovo}  iskoristeno={iskoristenaSlova.includes(slovo) } />;
         })}
       </div>
       <div className="line3">
         <SlovoKeyboard value={"ENTER"} />
-        {keys3.map((key) => {
-          return <SlovoKeyboard key={key} value={key}/*  disabled={disabledLetters.includes(key) }*/ />;
+        {keys3.map((slovo) => {
+          return <SlovoKeyboard key={slovo} value={slovo}  iskoristeno={iskoristenaSlova.includes(slovo) } />;
         })}
         <SlovoKeyboard value={"OBRIŠI"} />
       </div>
