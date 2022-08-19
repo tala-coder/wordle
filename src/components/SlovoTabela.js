@@ -8,12 +8,12 @@ const SlovoTabela = ({ red, kolona }) => {
 
   const pogodeno = rijec.toUpperCase()[kolona] === slovo;
   const postoji = !pogodeno && slovo !== "" && rijec.toUpperCase().includes(slovo);
-  const id = pozicija.red > red &&(pogodeno ? "pogodeno" : postoji ? "postoji" : "error");
+  const id = pozicija.red > red && (pogodeno ? "pogodeno" : postoji ? "postoji" : "error");
 
   console.log(pozicija);
 
   useEffect(() => {
-    if (!pogodeno && slovo !== "" && !postoji) { 
+    if (slovo !== "" && !postoji) { 
       setIskoristenaSlova((prev) => [...prev, slovo]); 
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
