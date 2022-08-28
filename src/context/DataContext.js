@@ -41,8 +41,8 @@ export const DataProvider = ({ children }) => {
     }
 
     //Socket.io 
-    // const socket = io.connect("https://wordle-server-heroku.herokuapp.com/");
-    const socket = io.connect('http://localhost:5000/');
+    const socket = io.connect("https://wordle-server-heroku.herokuapp.com/");
+    // const socket = io.connect('http://localhost:5000/');
     const [room, setRoom] = useState("123");
 
     const sendMessage = (trazenaRijec) => {
