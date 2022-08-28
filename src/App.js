@@ -30,7 +30,15 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      {prikazKorisniku}
+      {/* {prikazKorisniku} */}
+      <div className='game' >
+        <Tabela />
+        {
+          nerijeseno ? <Nerijeseno />
+            : pobjeda ? <Pobjeda />
+              : <Keyboard />
+        }
+      </div >;
     </div>
   );
 }
