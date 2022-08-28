@@ -22,9 +22,10 @@ function App() {
             : <Keyboard />
       }
     </div >;
-  } else {
-    prikazKorisniku = <h1>Loading</h1>;
-  } 
+  }
+  //  else {
+  //   prikazKorisniku = <h1>Loading</h1>;
+  // } 
 
   return (
     <div className="App">
