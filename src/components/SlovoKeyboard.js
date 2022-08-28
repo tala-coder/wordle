@@ -3,17 +3,17 @@ import DataContext from '../context/DataContext'
 import { useContext } from 'react'
 
 const SlovoKeyboard = ({ value, iskoristeno }) => {
-  let { pozicija, setPozicija, tabela, setTabela, jelPobjedio, setNerijeseno } = useContext(DataContext);
+  let { pozicija, setPozicija, tabela, setTabela, jelPobjedio, setNerijeseno} = useContext(DataContext);
 
-  const odabranoSlovo = () => {
+  const odabranoSlovo = () => { 
     if (value === "ENTER") {
       if (pozicija.kolona !== 5) return;
       jelPobjedio();
-      console.log(pozicija.red , pozicija.kolona);
+      // console.log(pozicija.red , pozicija.kolona);
       if (pozicija.red === 5 && pozicija.kolona === 5) {
         setNerijeseno(true)
       }
-      setPozicija({ red: pozicija.red + 1, kolona: 0 }); 
+      // setPozicija({ red: pozicija.red + 1, kolona: 0 }); 
     }
     else if (value === "OBRIŠI") {
       if (pozicija.kolona === 0) return;
@@ -31,7 +31,7 @@ const SlovoKeyboard = ({ value, iskoristeno }) => {
     }
   }
 
-  let b = <div className="key" id={iskoristeno && "disabled"} onClick={odabranoSlovo}> {value} </div>;
+  let b = <div className="key" id={iskoristeno ? "disabled" : undefined} onClick={odabranoSlovo}> {value} </div>;
   if (value === "ENTER" || value === "OBRIŠI") {
     b = <div className="BigKey" onClick={odabranoSlovo}> {value} </div>
   }

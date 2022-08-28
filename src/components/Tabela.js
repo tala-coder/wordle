@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import SlovoTabela from './SlovoTabela'
 
-const Tabela = () => { 
+const Tabela = () => {
+
   return (
     <div className="board">
-      <br/>
-      <div className="row"> 
+      <br />
+      <div className="row">
         <SlovoTabela red={0} kolona={0} />
         <SlovoTabela red={0} kolona={1} />
         <SlovoTabela red={0} kolona={2} />

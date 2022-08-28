@@ -2,15 +2,16 @@ import React, { useEffect, useCallback } from 'react'
 import SlovoKeyboard from './SlovoKeyboard';
 import DataContext from '../context/DataContext'
 import { useContext } from 'react'
+import { socket } from '../App';
 
 const Keyboard = () => {
   const keys1 = ["Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P"];
   const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
   const keys3 = ["Y", "X", "C", "V", "B", "N", "M"];
-  let { tabela, pozicija, setTabela, setPozicija, jelPobjedio, iskoristenaSlova } = useContext(DataContext);
+  let { tabela, pozicija, setTabela, setPozicija, jelPobjedio, iskoristenaSlova} = useContext(DataContext);
 
   const onSelectLetter = (value) => {
-    if (pozicija.kolona > 4) return;
+    if (pozicija.kolona > 4) return; 
     const newTable = [...tabela];
     newTable[pozicija.red][pozicija.kolona] = value;
     setTabela(newTable);
@@ -35,7 +36,7 @@ const Keyboard = () => {
     } else {
       keys1.forEach((slovo) => {
         if (event.key.toLowerCase() === slovo.toLowerCase()) {
-          onSelectLetter(slovo);
+          onSelectLetter(slovo); 
         }
       });
       keys2.forEach((slovo) => {
