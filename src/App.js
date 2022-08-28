@@ -8,21 +8,21 @@ import Nerijeseno from './components/Nerijeseno';
 import Pobjeda from './components/Pobjeda';
 
 function App() {
-  let { nerijeseno, pobjeda, igraPocinje } = useContext(DataContext);
+  let { nerijeseno, pobjeda, /* igraPocinje */ } = useContext(DataContext);
 
-  let prikazKorisniku;
+  // let prikazKorisniku;
 
 
-  if (igraPocinje) {
-    prikazKorisniku = <div className='game' >
-      <Tabela />
-      {
-        nerijeseno ? <Nerijeseno />
-          : pobjeda ? <Pobjeda />
-            : <Keyboard />
-      }
-    </div >;
-  }
+  // if (igraPocinje) {
+  //   prikazKorisniku = <div className='game' >
+  //     <Tabela />
+  //     {
+  //       nerijeseno ? <Nerijeseno />
+  //         : pobjeda ? <Pobjeda />
+  //           : <Keyboard />
+  //     }
+  //   </div >;
+  // }
   //  else {
   //   prikazKorisniku = <h1>Loading</h1>;
   // } 
