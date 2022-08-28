@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import io from "socket.io-client";
-export const socket = io.connect('http://localhost:3001/');
+//  const socket = io.connect('http://localhost:5000/');
+//  const socket = io.connect('https://wordle-server-heroku.herokuapp.com/');
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
@@ -40,7 +41,8 @@ export const DataProvider = ({ children }) => {
     }
 
     //Socket.io 
-    const socket = io.connect("http://localhost:3001/");
+    // const socket = io.connect("https://wordle-server-heroku.herokuapp.com/");
+    const socket = io.connect('http://localhost:5000/');
     const [room, setRoom] = useState("123");
 
     const sendMessage = (trazenaRijec) => {
@@ -50,7 +52,7 @@ export const DataProvider = ({ children }) => {
     const joinRoom = () => {
         if (room !== "") {
             socket.emit("join_room", room);
-            socket.on("noviIgrac", (data) => {
+            socket.once("noviIgrac", (data) => {
                 console.log('test rijec', data)
                 setTrazenaRijec(data.rijec)
                 setIgraPocinje(true)
@@ -71,6 +73,7 @@ export const DataProvider = ({ children }) => {
             setPozicija({ red: pozicija.red + 1, kolona: 0 })
             updateTable(pozicija.red, data.korisnikovUnos)
         });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tabela]);
 
     return (

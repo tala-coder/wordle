@@ -16,6 +16,7 @@ const SlovoTabela = ({ red, kolona }) => {
     if (slovo !== "" && !postoji) {
       setIskoristenaSlova((prev) => [...prev, slovo]);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pozicija.red]);
 
   return (
