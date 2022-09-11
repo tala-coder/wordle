@@ -1,7 +1,4 @@
-//import wordBank from "./wordle-bank.txt";
-
-const rijeci = ['react', 'trelo', 'hards', 'nesto'];
-
+const rijeci = ['atlas', 'crkva', 'četka', 'ćilim', 'dabar', 'glava', 'fazan', 'harem', 'javor'];
 let randomRijec = rijeci[Math.floor(Math.random() * rijeci.length)];
 
 export { randomRijec }

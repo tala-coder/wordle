@@ -2,7 +2,6 @@ import React from 'react'
 import SlovoTabela from './SlovoTabela'
 
 const Tabela = () => {
-
   return (
     <div className="board">
       <br />

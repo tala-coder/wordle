@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import io from "socket.io-client";
-//  const socket = io.connect('http://localhost:5000/');
+// const socket = io.connect('http://localhost:5000/');
 //  const socket = io.connect('https://wordle-server-heroku.herokuapp.com/');
 const DataContext = createContext({});
 
@@ -17,7 +17,7 @@ export const DataProvider = ({ children }) => {
     const [pozicija, setPozicija] = useState({ red: 0, kolona: 0 });
     const [iskoristenaSlova, setIskoristenaSlova] = useState([]);
     const [trazenaRijec, setTrazenaRijec] = useState('');
-    console.log('random rijec -> ', trazenaRijec);
+    console.log(trazenaRijec);
 
     const [pobjeda, setPobjeda] = useState(false);
     const [igraPocinje, setIgraPocinje] = useState(false);
@@ -29,31 +29,31 @@ export const DataProvider = ({ children }) => {
         for (let i = 0; i < 5; i++) {
             korisnikovUnos += tabela[pozicija.red][i];
         }
-        console.log(korisnikovUnos, '---- tetst testova ---- ', trazenaRijec)
+        console.log(korisnikovUnos, trazenaRijec)
         if (korisnikovUnos === trazenaRijec.toUpperCase()) {
             setPobjeda(true);
             socket.emit("kraj_igre");
         }
-        else if (pozicija.red === 5) { // && pozicija.kolona === 5
+        else if (pozicija.red === 5) {
             setNerijeseno(true)
         }
         sendMessage(korisnikovUnos);
     }
 
     //Socket.io 
-    const socket = io.connect("https://wordle-server-heroku.herokuapp.com/");
-    // const socket = io.connect('http://localhost:5000/');
+    // const socket = io.connect("https://wordle-server-heroku.herokuapp.com/");
+    const socket = io.connect('http://localhost:5000/');
     const [room, setRoom] = useState("123");
 
     const sendMessage = (trazenaRijec) => {
-        console.log('sendMessage funkcija dataContext', trazenaRijec)
+        console.log(trazenaRijec)
         socket.emit("send_message", { korisnikovUnos, room, pozicija });
     };
     const joinRoom = () => {
         if (room !== "") {
             socket.emit("join_room", room);
             socket.once("noviIgrac", (data) => {
-                console.log('test rijec', data)
+                console.log(data)
                 setTrazenaRijec(data.rijec)
                 setIgraPocinje(true)
             });
@@ -73,7 +73,7 @@ export const DataProvider = ({ children }) => {
             setPozicija({ red: pozicija.red + 1, kolona: 0 })
             updateTable(pozicija.red, data.korisnikovUnos)
         });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tabela]);
 
     return (

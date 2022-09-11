@@ -2,7 +2,9 @@ import React from 'react'
 
 const Nerijeseno = () => {
   return (
-    <div>Nerijeseno</div>
+    <div><h1>Neriješeno</h1>
+      <a href='http://localhost:3000/zahtjev' > igraj ponovo </a>
+    </div>
   )
 }
 
